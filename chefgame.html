@@ -1,0 +1,349 @@
+<DOCTYPE! html>
+<head>
+<h1> Cake Game.
+</h1>
+<h2> Why does it exist?
+</h2>
+<p> I made this game because cooking is usually really intimidating to some people, but it's actually very simple. <br></br>
+Just gather the ingredients and put them in the oven!
+</p>
+<title> Cake Game 
+</title>
+</head>
+<br> </br>
+<body>
+<div id="onpress">
+<button type="button" class="buttonposition" onClick="StartGame()">Start Game</button>
+</div>
+<div class="container" >
+<img id="hidden" class="hidden" src="navy-blue-kitchen-cabinets-1080x675.png">
+<img id="openfridge" class="openfridge" src="31661623.jpg">
+<img id="cake" class="cake" src="vanilla-cake-thumb-500x500.jpg">
+<button id="flour" class="flour" onClick="GrabFlour()">Flour</button>
+<button id="sugar" class="sugar" onClick="GrabSugar()">Sugar</button>
+<button id="vanilla" class="vanilla" onClick="GrabVanilla()">Vanilla</button>
+<button id="eggs" class="eggs" onClick="GrabEggs()">Eggs</button>
+<button id="butter" class="butter" onClick="GrabButter()">Butter</button>
+<button id="milk" class="milk" onClick="GrabMilk()">Milk</button>
+<button id="fridge" class="fridge" onClick="OpenFridge()">Fridge</button>
+<button id="goback" class="goback" onClick="Room()">Back to Kitchen</button>
+<button id="oven" class="oven" onClick="Oven()">Oven</button>
+<audio loop id="kitchen" >
+<source src="The Marian Circle Drum Brigade - Kitchen.mp3" type="audio/mpeg">
+</audio>
+</div>
+</body>
+<style>
+body {
+background: linear-gradient(0deg, #2e0669, #ffffff 50%);
+}
+p {text-align: center;
+}
+.cake{
+display: none;
+}
+.end {
+text-align: center;
+}
+.hidden {
+display: none;
+}
+.goback {
+display: none;
+}
+.flour {
+display: none;
+}
+.sugar {
+display: none;
+}
+.vanilla {
+display: none;
+}
+.eggs {
+display: none;
+}
+.milk {
+display: none;
+}
+.butter {
+display: none;
+}
+.fridge {
+display: none;
+}
+.oven {
+display: none;
+}
+.openfridge {
+display: none;
+}
+h1 {
+text-align: center;
+}
+h2 {
+text-align: center;
+}
+.buttonposition{
+width: 100%
+        display: block;
+        background-color: #FF0000;
+        border-radius: 10px;
+        border: 4px double #cccccc;
+        color: #eeeeee;
+        font-size: 28px;
+         padding: 12px 24px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+	
+}
+.container {
+
+position: relative;
+width 600px
+}
+.container img {
+width: 100%;
+height: auto;
+text-align: center;
+}
+.container .flour {
+  position: absolute;
+  top: 57%;
+  left: 55%;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.container .sugar {
+  position: absolute;
+  top: 62%;
+  left: 70%;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.container .vanilla {
+  position: absolute;
+  top: 79%;
+  left: 0%;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.container .milk {
+  position: absolute;
+  top: 28%;
+  left: 10%;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.container .butter {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.container .eggs {
+  position: absolute;
+  top: 56%;
+  left: 70%;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.container .goback {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.container .fridge {
+  position: absolute;
+  top: 10%;
+  left: 75%;
+background-color: #555;
+  color: white;
+  font-size: 16px;
+
+
+  cursor: pointer;
+ 
+width: 360px;
+height: 400px;
+}
+.container .oven {
+  position: absolute;
+  top: 30%;
+  left: 54%;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+width: 150px;
+height: 150px;
+}
+.end {
+color: white;
+}
+</style>
+<script>
+var gotflour = "false";
+var gotsugar = "false";
+var gotvanilla = "false";
+var goteggs = "false";
+var gotmilk = "false";
+var gotbutter = "false";
+function StartCake() {
+ alert ("Lets get cookin!");
+}
+function StartGame() {
+document.getElementById('hidden').style.display = 'block';
+document.getElementById('flour').style.display = 'block';
+document.getElementById('sugar').style.display = 'block';
+document.getElementById('fridge').style.display = 'block';
+document.getElementById('vanilla').style.display = 'block';
+document.getElementById('oven').style.display = 'block';
+var elem = document.getElementById('onpress');
+elem.parentNode.removeChild(elem);
+var audio = document.getElementById("kitchen");
+audio.play();
+}
+function GrabSugar(){
+var elem = document.getElementById('sugar');
+elem.parentNode.removeChild(elem);
+gotsugar = "true";
+}
+function GrabFlour(){
+var elem = document.getElementById('flour');
+elem.parentNode.removeChild(elem);
+gotflour = "true";
+}
+function GrabVanilla(){
+var elem = document.getElementById('vanilla');
+elem.parentNode.removeChild(elem);
+gotvanilla = "true";
+}
+function GrabEggs(){
+var elem = document.getElementById('eggs');
+elem.parentNode.removeChild(elem);
+goteggs = "true";
+}
+function GrabButter(){
+var elem = document.getElementById('butter');
+elem.parentNode.removeChild(elem);
+gotbutter = "true";
+}
+function GrabMilk(){
+var elem = document.getElementById('milk');
+elem.parentNode.removeChild(elem);
+gotmilk = "true";
+}
+function OpenFridge() {
+document.getElementById('hidden').style.display = 'none';
+document.getElementById('goback').style.display = 'block';
+if (gotflour == "false") {
+document.getElementById('flour').style.display = 'none';
+}
+if (gotsugar == "false") {
+document.getElementById('sugar').style.display = 'none';
+}
+document.getElementById('fridge').style.display = 'none';
+if (gotvanilla == "false") {
+document.getElementById('vanilla').style.display = 'none';
+}
+document.getElementById('oven').style.display = 'none';
+document.getElementById('openfridge').style.display = 'block';
+if (gotmilk == "false") {
+document.getElementById('milk').style.display = 'block';
+}
+if (gotbutter == "false") {
+document.getElementById('butter').style.display = 'block';
+}
+if (goteggs == "false") {
+document.getElementById('eggs').style.display = 'block';
+}
+}
+function Room() {
+if (gotflour == "false") {
+document.getElementById('flour').style.display = 'block';
+}
+if (gotsugar == "false") {
+document.getElementById('sugar').style.display = 'block';
+}
+if (gotvanilla == "false") {
+document.getElementById('vanilla').style.display = 'block';
+}
+if (goteggs == "false") {
+document.getElementById('eggs').style.display = 'none';
+}
+if (gotmilk == "false") {
+document.getElementById('milk').style.display = 'none';
+}
+if (gotbutter == "false") {
+document.getElementById('butter').style.display = 'none';
+}
+document.getElementById('oven').style.display = 'block';
+document.getElementById('fridge').style.display = 'block';
+document.getElementById('hidden').style.display = 'block';
+document.getElementById('openfridge').style.display = 'none';
+document.getElementById('goback').style.display = 'none';
+}
+function Oven() {
+if (gotbutter == "true" && gotmilk == "true" && goteggs == "true" && gotflour == "true" && gotsugar == "true" && gotvanilla == "true") {
+alert("After mixing the ingredients together and putting it in the oven... You made a cake!");
+document.getElementById('oven').style.display = 'none';
+document.getElementById('fridge').style.display = 'none';
+document.getElementById('hidden').style.display = 'none';
+document.getElementById('cake').style.display = 'block';
+var audio = document.getElementById("kitchen");
+audio.pause();
+}
+}
+</script>
+<foot>
+<div class="end">
+<p> Credits </p>
+<p> The Marian Circle Drum Brigade - Kitchen </p>
+</div>
+</foot>
